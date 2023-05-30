@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--  icon-->
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body id="body">
+
+
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="card">
+                    <div class="card-header">Quản lý tuyển sinh </div>
+                    <div class="card-body flex-wrap">
+                        <div class="form-group col-4 pt-2">
+                            <labe>Điểm chuẩn </label>
+                                <input type="number" class="form-control" id="diemChuan"
+                                    placeholder="Nhập điểm chuẩn " />
+                        </div>
+
+
+                        <div class="form-group col-4 ">
+                            <label>Chọn khu vực</label>
+                            <select id="KhuVuc" class="form-control">
+                                <option value="0">Chọn khu vực</option>
+                                <option value="2">A</option>
+                                <option value="1">B</option>
+                                <option value="0.5">C</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-4">
+                            <label>Chọn đối tượng</label>
+                            <select id="DoiTuong" class="form-control">
+                                <option value="0">Chọn đối tượng</option>
+                                <option value="2.5">1</option>
+                                <option value="1.5">2</option>
+                                <option value="1">3</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-4 ">
+                            <label>điểm môn thứ 1 </label>
+                            <input type="number" class="form-control" id="number1" placeholder="Nhập điểm môn thứ 1" />
+                        </div>
+
+                        <div class="form-group col-4 px-1  ">
+                            <label>điểm môn thứ 2 </label>
+                            <input type="number" class="form-control" id="number2" placeholder="Nhập điểm môn thứ 2" />
+                        </div>
+
+                        <div class="form-group col-4 ">
+                            <label>điểm môn thứ 3 </label>
+                            <input type="number" class="form-control" id="number3" placeholder="Nhập điểm môn thứ 3" />
+                        </div>
+
+
+
+                        <button id="btnKetQua" class="btn btn-success col-4 m-3 ">Kết quả </button>
+                    </div>
+                    <div id="footerTinhKQ" class="card-footer ">
+                        <i class="fa-solid fa-hand-point-right" style="color: #bed60a;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header">tính tiền điện </div>
+                    <div class="card-body flex-wrap">
+                        <div class="form-group col-5">
+                            <label>Nhập họ tên </label>
+                            <input type="text" class="form-control" id="hoTen" placeholder="họ tên " />
+                        </div>
+                        <div class="form-group col-5">
+                            <label>Nhập số kw</label>
+                            <input type="number" class="form-control" id="soKw" placeholder="nhập số kw" />
+                        </div>
+
+
+                        <button id="btnTinhKW" class="btn btn-success  col-12">Tính tiền điện</button>
+                    </div>
+                    <div id="footerTinhKW" class="card-footer">
+                        <i class="fa-solid fa-hand-point-right" style="color: #bed60a;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="card">
+                    <div class="card-header ">Tính thuế thu nhập cá nhân </div>
+                    <div class="card-body flex-wrap">
+                        <div class="form-group m-2 ">
+
+                            <input type="text" class="form-control" id="nhapHoTenThue" placeholder="Nhập họ tên " />
+                        </div>
+
+                        <div class="form-group m-2">
+
+                            <input type="number" class="form-control" id="tongThuNhap" placeholder="Tổng thu nhập " />
+                        </div>
+
+                        <div class="form-group m-2 ">
+
+                            <input type="number" class="form-control" id="soNguoiPhuThuoc"
+                                placeholder="số người phụ thuộc " />
+                        </div>
+
+                        <button id="btnTinhThue" class="btn btn-success col-4 m-1">tính tiền thuế</button>
+                    </div>
+                    <div id="footerTinhThue" class="card-footer">
+                        <i class="fa-solid fa-hand-point-right" style="color: #bed60a;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="card">
+                    <div class="card-header">tính tiền cáp</div>
+                    <div class="card-body flex-wrap  ">
+                        <div class="form-group col-4 ">
+
+                            <select id="KhachHang" class="form-control" onchange="myFunction()">
+                                <option value="ND">Nhà dân</option>
+                                <option value="DN">Doanh nghiệp</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-4">
+
+                            <input type="number" class="form-control" id="maKhachHang"
+                                placeholder="nhập mã khách hàng" />
+                        </div>
+
+                        <div class="form-group col-4">
+
+                            <input type="number" class="form-control" id="soKenhCC" placeholder=" số kênh cao cấp" />
+                        </div>
+
+                        <div id="demo"></div>
+                        <!-- <p id="demo"> </p> -->
+
+
+                        <button id="btnTinhTienCap" class="btn btn-success col-3">Tính tiền cáp </button>
+                    </div>
+
+                    <div id="footerTinhDTCV" class="card-footer">
+                        <i class="fa-solid fa-hand-point-right" style="color: #bed60a;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+
+
+
+
+    <script src="./main.js"></script>
+
+    <script>
+        //form group thu 4
+
+        //  <div class="form-group col-4">
+        //   <input type="number" class="form-control" id="soKetNoi" placeholder="số kết nối" />
+        //  </div>
+
+        var content="";
+        content +=  "";
+
+        function myFunction() { // onchange
+            var x = document.getElementById("KhachHang");
+            
+            if (x.value == "DN") {
+                //Do something
+                document.getElementById("demo").innerHTML = "hello div thứ 4" +content;
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>

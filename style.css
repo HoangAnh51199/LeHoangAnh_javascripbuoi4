@@ -1,0 +1,7 @@
+.form-control {
+    color: #adbccc;
+    border: 3px solid #7b8c9d;
+}
+.card-body {
+    display: flex;
+}
