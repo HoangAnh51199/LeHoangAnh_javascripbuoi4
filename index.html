@@ -28,7 +28,7 @@
                     <div class="card-header">Quản lý tuyển sinh </div>
                     <div class="card-body flex-wrap">
                         <div class="form-group col-4 pt-2">
-                            <labe>Điểm chuẩn </label>
+                            <label>Điểm chuẩn </label>
                                 <input type="number" class="form-control" id="diemChuan"
                                     placeholder="Nhập điểm chuẩn " />
                         </div>
@@ -158,7 +158,7 @@
                         <div class="form-group col-4 ">
 
                             <select id="KhachHang" class="form-control" onchange="myFunction()">
-                                <option value="ND">Nhà dân</option>
+                                <option value="ND" selected>Nhà dân</option>
                                 <option value="DN">Doanh nghiệp</option>
 
                             </select>
@@ -172,6 +172,11 @@
                         <div class="form-group col-4">
 
                             <input type="number" class="form-control" id="soKenhCC" placeholder=" số kênh cao cấp" />
+                        </div>
+
+                        <div class="form-group col-4" style="display: none;" id="divSoKetNoi">
+
+                            <input type="number" class="form-control" id="soKetNoi" placeholder=" số kênh cao cấp" />
                         </div>
 
                         <div id="demo"></div>
@@ -208,12 +213,14 @@
         content +=  "";
 
         function myFunction() { // onchange
-            var x = document.getElementById("KhachHang");
+            var loaiKH = document.getElementById("KhachHang").value;
             
-            if (x.value == "DN") {
+            if (loaiKH === "DN") {
                 //Do something
-                document.getElementById("demo").innerHTML = "hello div thứ 4" +content;
+                document.getElementById("divSoKetNoi").style.display = "block";
 
+            } else {
+                document.getElementById("divSoKetNoi").style.display = "none";
             }
         }
     </script>
