@@ -1,7 +1,14 @@
 .form-control {
-    color: #adbccc;
+    color: #85847e;
     border: 3px solid #7b8c9d;
 }
+
 .card-body {
     display: flex;
+}
+
+input::placeholder {
+    
+    
+    color: red;
 }
