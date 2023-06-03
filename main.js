@@ -24,21 +24,21 @@
 // };
 
 
-function getIdSo(id, giaTri) {
+function getIdSo(id) {
 
-    giaTri = document.getElementById(id).value * 1;
-    return giaTri;
+    return document.getElementById(id).value * 1;
+
 };
 
 var btnKetQua = document.getElementById("btnKetQua").onclick = function () {
 
-    var diemChuan = getIdSo('diemChuan', 'giaTri');
-    var KhuVuc = getIdSo('KhuVuc', 'giaTri');
-    var DoiTuong = getIdSo('DoiTuong', 'giaTri');
+    var diemChuan = getIdSo('diemChuan');
+    var KhuVuc = getIdSo('KhuVuc');
+    var DoiTuong = getIdSo('DoiTuong');
 
-    var number1 = getIdSo('number1', 'giaTri');
-    var number2 = getIdSo('number2', 'giaTri');
-    var number3 = getIdSo('number3', 'giaTri');
+    var number1 = getIdSo('number1');
+    var number2 = getIdSo('number2');
+    var number3 = getIdSo('number3');
 
     var Total = KhuVuc + DoiTuong + number1 + number2 + number3;
     console.log(diemChuan);
@@ -77,7 +77,7 @@ function inNoiDung(id, noiDung) {// dung chung khi get id footer
 var btnTinhKW = document.getElementById("btnTinhKW").onclick = function tinhKQKW() {
 
     var hoTen = document.getElementById("hoTen").value;
-    var soKw = getIdSo('soKw', 'giaTri');
+    var soKw = getIdSo('soKw');
     var donGia = 500;//mac dinh giá
     var donGia2 = 650;//mac dinh giá
     var donGia3 = 850;//mac dinh giá
@@ -121,11 +121,15 @@ var btnTinhThue = document.getElementById("btnTinhThue");
 btnTinhThue.onclick = function () {
 
     var nhapHoTenThue = document.getElementById("nhapHoTenThue").value;
-    var tongThuNhap = getIdSo('tongThuNhap', 'giaTri');
-    var soNguoiPhuThuoc = getIdSo('soNguoiPhuThuoc', 'giaTri');
+    var tongThuNhap = getIdSo('tongThuNhap');
+    var soNguoiPhuThuoc = getIdSo('soNguoiPhuThuoc');
 
+    if (tongThuNhap == 0) {
+        alert("Vui long nhập tổng thu nhập!");
+    } else {
+        var thuNhapChiuThue = tongThuNhap - 4e+6 - (soNguoiPhuThuoc * 16e+5);
+    }
 
-    var thuNhapChiuThue = tongThuNhap - 4e+6 - (soNguoiPhuThuoc * 16e+5);
 
     if (thuNhapChiuThue <= 60e+6) {
         total3 = thuNhapChiuThue * 0.05;
@@ -144,11 +148,18 @@ btnTinhThue.onclick = function () {
     } else {
         alert("Vui long nhap so luong phu hop!");
     }
-    console.log('thunhapthue lúc đầu', thuNhapChiuThue);
-    console.log('theo phan trăm :', total3);
+    var vietnam = new Intl.NumberFormat('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+    });
 
-  
-    var result3 = "họ tên " + nhapHoTenThue + "<br>Thu nhập chịu thuế: " +(total3) + ' VND';
+    console.log('thunhapthue lúc đầu', vietnam.format(thuNhapChiuThue)+"(VND)");
+    console.log('theo phan trăm :', vietnam.format(total3)+"(VND)");
+    
+    console.log("ket qua theo bai 110trieu (10%):",(vietnam.format(thuNhapChiuThue*0.1))+"(VND)") ;
+
+
+    var result3 = "họ tên :" + nhapHoTenThue + "<br>Thu nhập chịu thuế: " + vietnam.format(total3)+"(VND)";
     // var footerTinhThue = document.getElementById("footerTinhThue");
     // footerTinhThue.innerHTML = result3;//xuất ra
 
@@ -189,48 +200,38 @@ btnTinhThue.onclick = function () {
 var btnTinhTienCap = document.getElementById("btnTinhTienCap").onclick = function tinhTienCap() {
     var KhachHang = document.getElementById("KhachHang").value;
 
-    var maKhachHang = getIdSo('maKhachHang', 'giaTri');
-    var soKenhCC = getIdSo('soKenhCC', 'giaTri');
-    var soKetNoi = getIdSo('soKetNoi', 'giaTri');
+    var maKhachHang = getIdSo('maKhachHang');
+    var soKenhCC = getIdSo('soKenhCC');
+    var soKetNoi = getIdSo('soKetNoi');
     console.log(KhachHang);
     // var DN =document.getElementById("KhachHang").value=DN;
     // var ND =document.getElementById("khachHang").value=ND;
 
 
-    let dollar =  Intl.NumberFormat('ja-JP');
-
     if (KhachHang === "DN" && soKetNoi <= 10) {
         var tienCapDoanhNghiep = 15 + 75 + (soKenhCC * 50);
-        var result4 = "Mã khách hàng:" + maKhachHang + "tiền cáp :" + "$" + tienCapDoanhNghiep;
+        var result4 = "Mã khách hàng:" + maKhachHang + "<br>tiền cáp :" + "$" + (tienCapDoanhNghiep.toFixed(2));
     } else {
         tienCapDoanhNghiep = 15 + 75 + (soKenhCC * 50) + ((soKetNoi - 10) * 5);
-        var result4 = "Mã khách hàng:" + maKhachHang + "tiền cáp :" + "$" + tienCapDoanhNghiep;
+        var result4 = "Mã khách hàng:" + maKhachHang + "<br>tiền cáp :" + "$" + (tienCapDoanhNghiep.toFixed(2));
     }
 
     if (KhachHang === "ND") {
         tienCapNhaDan = 4.5 + 20.5 + (soKenhCC * 7.5);
-        var result4 = "Mã khách hàng:" + maKhachHang + "<br>tiền cáp : $" + tienCapNhaDan;
+        // var result4 = "Mã khách hàng:" + maKhachHang + "<br>tiền cáp : $" +  (tienCapNhaDan.toFixed(2)); //$20.00
+        var result4 = "Mã khách hàng:" + maKhachHang + "<br>tiền cáp :" + formatter.format(tienCapNhaDan); //$20.00
     }
-console.log('nhadan',tienCapNhaDan);
-console.log('doanhnghiep',tienCapDoanhNghiep);
 
     return inNoiDung('footerTinhDTCV', result4);
-    // var footerTinhDTCV = document.getElementById("footerTinhDTCV");
-    // footerTinhDTCV.innerHTML = result4;//xuất ra
-
 
 };
 
-
 // Create our number formatter.
-const formatter = new Intl.NumberFormat('en-US', {
+var formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
-  
-    // These options are needed to round to whole numbers if that's what you want.
-    //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-    //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
-  });
-  
-  console.log(formatter.format(20)); /* $2,500.00 */
-  console.log(formatter.format(tienCapNhaDan));
+});
+// console.log(formatter.format(20)); /* $20.00 */
+//   console.log('nhadan',tienCapNhaDan);
+
+
